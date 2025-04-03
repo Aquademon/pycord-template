@@ -9,7 +9,7 @@ load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
 
 # Configure Loguru
-logger.add("logs/bot.log", rotation="10 MB", level="INFO", format="{time:YYYY-MM-DD HH:mm:ss} | {level: <8} | {message}")
+logger.add("src/logs/bot.log", rotation="10 MB", level="INFO", format="{time:YYYY-MM-DD HH:mm:ss} | {level: <8} | {message}")
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -24,7 +24,7 @@ async def on_ready():
     logger.info("Beginning to load cogs from ./src/cogs/")
     
     cog_count = 0
-    for filename in os.listdir("./src/cogs/"):
+    for filename in os.listdir("/src/cogs/"):
         if filename.endswith(".py"):
             try:
                 bot.load_extension(f"cogs.{filename[:-3]}")
