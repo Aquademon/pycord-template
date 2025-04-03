@@ -9,7 +9,7 @@ load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
 
 # Configure Loguru
-logger.add("src/logs/bot.log", rotation="10 MB", level="INFO",
+logger.add("./src/logs/bot.log", rotation="10 MB", level="INFO",
            format="{time:YYYY-MM-DD HH:mm:ss} | {level: <8} | {message}")
 
 intents = discord.Intents.all()
